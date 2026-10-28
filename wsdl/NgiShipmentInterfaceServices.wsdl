@@ -1,0 +1,974 @@
+<definitions name='KOPSWebServices' targetNamespace='http://yurticikargo.com.tr/NgiShipmentInterfaceServices' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://yurticikargo.com.tr/WSExceptions/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://yurticikargo.com.tr/NgiShipmentInterfaceServices' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://yurticikargo.com.tr/WSExceptions/' version='1.0' xmlns:tns='http://yurticikargo.com.tr/WSExceptions/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='YurticikargoWSException' type='tns:YurticikargoWSException'/>
+   <xs:complexType name='YurticikargoWSException'>
+    <xs:sequence>
+     <xs:element name='errorCode' type='xs:int'/>
+     <xs:element minOccurs='0' name='errText' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  <xs:schema targetNamespace='http://yurticikargo.com.tr/NgiShipmentInterfaceServices' version='1.0' xmlns:ns1='http://yurticikargo.com.tr/WSExceptions/' xmlns:tns='http://yurticikargo.com.tr/NgiShipmentInterfaceServices' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:import namespace='http://yurticikargo.com.tr/WSExceptions/'/>
+   <xs:element name='NgiPayerCustIndexVO' type='tns:NgiPayerCustIndexVO'/>
+   <xs:element name='NgiPayerCustVO' type='tns:NgiPayerCustVO'/>
+   <xs:element name='ResponseNgiPayerCustVO' type='tns:ResponseNgiPayerCustVO'/>
+   <xs:element name='XAConsigneeCustAddress' type='tns:XAConsigneeCustAddress'/>
+   <xs:element name='XAInvCustomer' type='tns:XAInvCustomer'/>
+   <xs:element name='XASenderCustAddress' type='tns:XASenderCustAddress'/>
+   <xs:element name='XAShipmentData' type='tns:XAShipmentData'/>
+   <xs:element name='XCancelShipmentResponse' type='tns:XCancelShipmentResponse'/>
+   <xs:element name='XCodData' type='tns:XCodData'/>
+   <xs:element name='XCodSelectData' type='tns:XCodSelectData'/>
+   <xs:element name='XCompProductSelectData' type='tns:XCompProductSelectData'/>
+   <xs:element name='XComplementaryProductData' type='tns:XComplementaryProductData'/>
+   <xs:element name='XConsigneeCustAddress' type='tns:XConsigneeCustAddress'/>
+   <xs:element name='XConsigneeCustData' type='tns:XConsigneeCustData'/>
+   <xs:element name='XConsigneeCustSelectData' type='tns:XConsigneeCustSelectData'/>
+   <xs:element name='XDelivery' type='tns:XDelivery'/>
+   <xs:element name='XDocCargoData' type='tns:XDocCargoData'/>
+   <xs:element name='XDocCargoSelectData' type='tns:XDocCargoSelectData'/>
+   <xs:element name='XEDocCargo' type='tns:XEDocCargo'/>
+   <xs:element name='XEDocCargoZplFormatData' type='tns:XEDocCargoZplFormatData'/>
+   <xs:element name='XEShipmentDataResponse' type='tns:XEShipmentDataResponse'/>
+   <xs:element name='XInvPayerCustomer' type='tns:XInvPayerCustomer'/>
+   <xs:element name='XOwnerCustData' type='tns:XOwnerCustData'/>
+   <xs:element name='XOwnerCustV2Data' type='tns:XOwnerCustV2Data'/>
+   <xs:element name='XPayerCustData' type='tns:XPayerCustData'/>
+   <xs:element name='XPayerCustSelectData' type='tns:XPayerCustSelectData'/>
+   <xs:element name='XPayerFlagData' type='tns:XPayerFlagData'/>
+   <xs:element name='XSenderCustAddress' type='tns:XSenderCustAddress'/>
+   <xs:element name='XSenderCustData' type='tns:XSenderCustData'/>
+   <xs:element name='XSenderCustSelectData' type='tns:XSenderCustSelectData'/>
+   <xs:element name='XShipmentData' type='tns:XShipmentData'/>
+   <xs:element name='XShipmentDataResponse' type='tns:XShipmentDataResponse'/>
+   <xs:element name='XShipmentParamsData' type='tns:XShipmentParamsData'/>
+   <xs:element name='XShipmentSelectData' type='tns:XShipmentSelectData'/>
+   <xs:element name='XShipmentSelectResponse' type='tns:XShipmentSelectResponse'/>
+   <xs:element name='XShipmentUpdateData' type='tns:XShipmentUpdateData'/>
+   <xs:element name='XShipmentV2Data' type='tns:XShipmentV2Data'/>
+   <xs:element name='XSpecialFieldData' type='tns:XSpecialFieldData'/>
+   <xs:element name='XSpecialFieldSelectData' type='tns:XSpecialFieldSelectData'/>
+   <xs:element name='XUpdateConsigneeResponse' type='tns:XUpdateConsigneeResponse'/>
+   <xs:element name='XUpdateShipmentResponse' type='tns:XUpdateShipmentResponse'/>
+   <xs:element name='YurticikargoWSException' nillable='true' type='ns1:YurticikargoWSException'/>
+   <xs:element name='cancelNgiShipment' type='tns:cancelNgiShipment'/>
+   <xs:element name='cancelNgiShipmentResponse' type='tns:cancelNgiShipmentResponse'/>
+   <xs:element name='cancelNgiShipmentWithoutReturn' type='tns:cancelNgiShipmentWithoutReturn'/>
+   <xs:element name='cancelNgiShipmentWithoutReturnResponse' type='tns:cancelNgiShipmentWithoutReturnResponse'/>
+   <xs:element name='createNgiShipment' type='tns:createNgiShipment'/>
+   <xs:element name='createNgiShipmentResponse' type='tns:createNgiShipmentResponse'/>
+   <xs:element name='createNgiShipmentWithAddress' type='tns:createNgiShipmentWithAddress'/>
+   <xs:element name='createNgiShipmentWithAddressResponse' type='tns:createNgiShipmentWithAddressResponse'/>
+   <xs:element name='createNgiShipmentWithDelivery' type='tns:createNgiShipmentWithDelivery'/>
+   <xs:element name='createNgiShipmentWithDeliveryResponse' type='tns:createNgiShipmentWithDeliveryResponse'/>
+   <xs:element name='createNgiShipmentWithPayer' type='tns:createNgiShipmentWithPayer'/>
+   <xs:element name='createNgiShipmentWithPayerResponse' type='tns:createNgiShipmentWithPayerResponse'/>
+   <xs:element name='createNgiShipmentWithZplKtnDelivery' type='tns:createNgiShipmentWithZplKtnDelivery'/>
+   <xs:element name='createNgiShipmentWithZplKtnDeliveryResponse' type='tns:createNgiShipmentWithZplKtnDeliveryResponse'/>
+   <xs:element name='doSaveNgiPayerCustomers' type='tns:doSaveNgiPayerCustomers'/>
+   <xs:element name='doSaveNgiPayerCustomersResponse' type='tns:doSaveNgiPayerCustomersResponse'/>
+   <xs:element name='selectShipment' type='tns:selectShipment'/>
+   <xs:element name='selectShipmentResponse' type='tns:selectShipmentResponse'/>
+   <xs:element name='updateConsigneeAddress' type='tns:updateConsigneeAddress'/>
+   <xs:element name='updateConsigneeAddressResponse' type='tns:updateConsigneeAddressResponse'/>
+   <xs:element name='updateShipmentDesiWeight' type='tns:updateShipmentDesiWeight'/>
+   <xs:element name='updateShipmentDesiWeightResponse' type='tns:updateShipmentDesiWeightResponse'/>
+   <xs:complexType name='createNgiShipmentWithAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentData' type='tns:XShipmentData'/>
+     <xs:element minOccurs='0' name='XSenderCustAddress' type='tns:XSenderCustAddress'/>
+     <xs:element minOccurs='0' name='XConsigneeCustAddress' type='tns:XConsigneeCustAddress'/>
+     <xs:element minOccurs='0' name='payerCustData' type='tns:XPayerCustData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='totalCargoCount' type='xs:long'/>
+     <xs:element name='totalDesi' type='xs:double'/>
+     <xs:element name='totalWeight' type='xs:double'/>
+     <xs:element minOccurs='0' name='personGiver' type='xs:string'/>
+     <xs:element minOccurs='0' name='description' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalTransferUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='complementaryProductDataArray' type='tns:XComplementaryProductData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoDataArray' type='tns:XDocCargoData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+     <xs:element minOccurs='0' name='codData' type='tns:XCodData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XComplementaryProductData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='complementaryProductCode' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XDocCargoData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='cargoDesi' type='xs:double'/>
+     <xs:element name='cargoWeight' type='xs:double'/>
+     <xs:element name='cargoCount' type='xs:int'/>
+     <xs:element minOccurs='0' name='weightUnit' type='xs:string'/>
+     <xs:element name='length' type='xs:double'/>
+     <xs:element name='width' type='xs:double'/>
+     <xs:element name='height' type='xs:double'/>
+     <xs:element minOccurs='0' name='dimensionsUnit' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoSpecialFieldDataArray' type='tns:XSpecialFieldData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XSpecialFieldData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='specialFieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='specialFieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XCodData'>
+    <xs:sequence>
+     <xs:element name='ttInvoiceAmount' type='xs:double'/>
+     <xs:element minOccurs='0' name='ttDocumentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='ttCollectionType' type='xs:string'/>
+     <xs:element minOccurs='0' name='ttDocumentSaveType' type='xs:string'/>
+     <xs:element name='dcSelectedCredit' type='xs:int'/>
+     <xs:element minOccurs='0' name='dcCreditRule' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XSenderCustAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='cityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='townName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderPhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAdditionalInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='latitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='longitude' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XConsigneeCustAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='consigneeCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='cityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='townName' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAdditionalInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='latitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='longitude' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XPayerCustData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invAddressId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithAddressResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShipmentDataResponse' type='tns:XShipmentDataResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentDataResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='projectId' type='xs:string'/>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='extendedBaseResultVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='errCode' type='xs:string'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='baseResultVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='outFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='outResult' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithPayer'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='XShipmentV2Data' type='tns:XShipmentV2Data'/>
+     <xs:element minOccurs='0' name='XSenderCustAddress' type='tns:XSenderCustAddress'/>
+     <xs:element minOccurs='0' name='XConsigneeCustAddress' type='tns:XConsigneeCustAddress'/>
+     <xs:element minOccurs='0' name='XInvPayerCustomer' type='tns:XInvPayerCustomer'/>
+     <xs:element minOccurs='0' name='XPayerFlagData' type='tns:XPayerFlagData'/>
+     <xs:element minOccurs='0' name='XOwnerCustomer' type='tns:XOwnerCustV2Data'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentV2Data'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='totalCargoCount' type='xs:long'/>
+     <xs:element name='totalDesi' type='xs:double'/>
+     <xs:element name='totalWeight' type='xs:double'/>
+     <xs:element minOccurs='0' name='personGiver' type='xs:string'/>
+     <xs:element minOccurs='0' name='description' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='complementaryProductDataArray' type='tns:XComplementaryProductData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoDataArray' type='tns:XDocCargoData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+     <xs:element minOccurs='0' name='codData' type='tns:XCodData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XInvPayerCustomer'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustTaxNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustAddress' type='xs:string'/>
+     <xs:element name='invCustCityId' type='xs:int'/>
+     <xs:element minOccurs='0' name='invCustTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='applyInvCustContractFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XPayerFlagData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='payerFlag' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XOwnerCustV2Data'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='custId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithPayerResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShipmentDataResponse' type='tns:XShipmentDataResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithZplKtnDelivery'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='XAShipmentData' type='tns:XAShipmentData'/>
+     <xs:element minOccurs='0' name='XASenderCustAddress' type='tns:XASenderCustAddress'/>
+     <xs:element minOccurs='0' name='XAConsigneeCustAddress' type='tns:XAConsigneeCustAddress'/>
+     <xs:element minOccurs='0' name='XAInvCustomer' type='tns:XAInvCustomer'/>
+     <xs:element minOccurs='0' name='XDelivery' type='tns:XDelivery'/>
+     <xs:element minOccurs='0' name='XEDocCargoZplFormatData' type='tns:XEDocCargoZplFormatData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XAShipmentData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='totalCargoCount' type='xs:long'/>
+     <xs:element name='totalDesi' type='xs:double'/>
+     <xs:element name='totalWeight' type='xs:double'/>
+     <xs:element minOccurs='0' name='personGiver' type='xs:string'/>
+     <xs:element minOccurs='0' name='description' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='complementaryProductDataArray' type='tns:XComplementaryProductData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoDataArray' type='tns:XDocCargoData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+     <xs:element minOccurs='0' name='codData' type='tns:XCodData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XASenderCustAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='cityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='townName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderPhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='latitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='longitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XAConsigneeCustAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='consigneeCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='cityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='townName' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='latitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='longitude' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XAInvCustomer'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XDelivery'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ktnId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnTranId' type='xs:string'/>
+     <xs:element minOccurs='0' name='commonKtnId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XEDocCargoZplFormatData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docCargoZplDataFormat' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoLabelType' type='xs:string'/>
+     <xs:element minOccurs='0' name='zplType' type='xs:string'/>
+     <xs:element minOccurs='0' name='encoding' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithZplKtnDeliveryResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XEShipmentDataResponse' type='tns:XEShipmentDataResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XEShipmentDataResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='projectId' type='xs:string'/>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoV2Array' type='tns:XEDocCargo'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='XEDocCargo'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='barcodeStringValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoZpl' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipment'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentData' type='tns:XShipmentData'/>
+     <xs:element minOccurs='0' name='senderCustData' type='tns:XSenderCustData'/>
+     <xs:element minOccurs='0' name='consigneeCustData' type='tns:XConsigneeCustData'/>
+     <xs:element minOccurs='0' name='payerCustData' type='tns:XPayerCustData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XSenderCustData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderSegmentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderPhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAdditionalInfo' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XConsigneeCustData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='consigneeCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeSegmentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAdditionalInfo' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShipmentDataResponse' type='tns:XShipmentDataResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='cancelNgiShipment'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cancellationDescription' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='cancelNgiShipmentResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XCancelShipmentResponse' type='tns:XCancelShipmentResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XCancelShipmentResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+       <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+       <xs:element minOccurs='0' name='docId' type='xs:string'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='cancelNgiShipmentWithoutReturn'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cancellationDescription' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='cancelNgiShipmentWithoutReturnResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XCancelShipmentResponse' type='tns:XCancelShipmentResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='updateShipmentDesiWeight'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element name='desi' type='xs:double'/>
+     <xs:element name='weight' type='xs:double'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='updateShipmentDesiWeightResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XUpdateShipmentResponse' type='tns:XUpdateShipmentResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XUpdateShipmentResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+       <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+       <xs:element name='desi' type='xs:double'/>
+       <xs:element name='weight' type='xs:double'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='updateConsigneeAddress'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentUpdateData' type='tns:XShipmentUpdateData'/>
+     <xs:element minOccurs='0' name='XConsigneeCustAddress' type='tns:XConsigneeCustAddress'/>
+     <xs:element minOccurs='0' name='ownerCustData' type='tns:XOwnerCustData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentUpdateData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element name='projectId' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XOwnerCustData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ownerCustId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='updateConsigneeAddressResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XUpdateConsigneeResponse' type='tns:XUpdateConsigneeResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XUpdateConsigneeResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element name='projectId' type='xs:long'/>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldData'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='selectShipment'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentParamsData' type='tns:XShipmentParamsData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentParamsData'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='projectCustIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='specialFieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='specialFieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='selectShipmentResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShipmentSelectResponse' type='tns:XShipmentSelectResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XShipmentSelectResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='shipmentSelectData' type='tns:XShipmentSelectData'/>
+       <xs:element minOccurs='0' name='senderCustData' type='tns:XSenderCustSelectData'/>
+       <xs:element minOccurs='0' name='consigneeCustData' type='tns:XConsigneeCustSelectData'/>
+       <xs:element minOccurs='0' name='payerCustData' type='tns:XPayerCustSelectData'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='XShipmentSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiDocumentKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='totalCargoCount' type='xs:long'/>
+     <xs:element name='totalDesi' type='xs:double'/>
+     <xs:element name='totalWeight' type='xs:double'/>
+     <xs:element minOccurs='0' name='personGiver' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalTransferUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='selectedArrivalTransferUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='complementaryProductDataArray' type='tns:XCompProductSelectData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoDataArray' type='tns:XDocCargoSelectData'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldDataArray' type='tns:XSpecialFieldSelectData'/>
+     <xs:element minOccurs='0' name='codData' type='tns:XCodSelectData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XCompProductSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='complementaryProdCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='complementaryProdName' type='xs:string'/>
+     <xs:element name='complementaryProdId' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XDocCargoSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ngiCargoKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='cargoDesi' type='xs:double'/>
+     <xs:element name='cargoWeight' type='xs:double'/>
+     <xs:element name='cargoCount' type='xs:int'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoSpecialFieldDataArray' type='tns:XSpecialFieldSelectData'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XSpecialFieldSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='specialFieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='specialFieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XCodSelectData'>
+    <xs:sequence>
+     <xs:element name='ttInvoiceAmount' type='xs:double'/>
+     <xs:element minOccurs='0' name='ttDocumentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='ttCollectionType' type='xs:string'/>
+     <xs:element minOccurs='0' name='ttDocumentSaveType' type='xs:string'/>
+     <xs:element name='dcSelectedCredit' type='xs:int'/>
+     <xs:element minOccurs='0' name='dcCreditRule' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XSenderCustSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressText' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderSegmentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderPhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAdditionalInfo' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XConsigneeCustSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='consigneeCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressText' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeSegmentId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressSegmentDetId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeTaxNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeMobilePhone' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeEmailAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeCustReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAddressReferenceId' type='xs:string'/>
+     <xs:element minOccurs='0' name='consigneeAdditionalInfo' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='XPayerCustSelectData'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invAddress' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doSaveNgiPayerCustomers'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='userLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='payerCustVO' type='tns:NgiPayerCustVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='NgiPayerCustVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustTaxNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustAddress' type='xs:string'/>
+     <xs:element name='invCustCityId' type='xs:long'/>
+     <xs:element minOccurs='0' name='invCustTownName' type='xs:string'/>
+     <xs:element name='ownerCustId' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doSaveNgiPayerCustomersResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ResponseNgiPayerCustVO' type='tns:ResponseNgiPayerCustVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='ResponseNgiPayerCustVO'>
+    <xs:sequence>
+     <xs:element name='returnStatus' type='xs:int'/>
+     <xs:element name='errCode' type='xs:int'/>
+     <xs:element minOccurs='0' name='returnMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='ngiPayerCustIndexVO' type='tns:NgiPayerCustIndexVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='NgiPayerCustIndexVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='invCustTaxNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustNameIndex' type='xs:string'/>
+     <xs:element name='ownerCustId' type='xs:long'/>
+     <xs:element name='ngiPayerLineId' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithDelivery'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='wsUserName' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsPassword' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserLanguage' type='xs:string'/>
+     <xs:element minOccurs='0' name='XAShipmentData' type='tns:XAShipmentData'/>
+     <xs:element minOccurs='0' name='XASenderCustAddress' type='tns:XASenderCustAddress'/>
+     <xs:element minOccurs='0' name='XAConsigneeCustAddress' type='tns:XAConsigneeCustAddress'/>
+     <xs:element minOccurs='0' name='XAInvCustomer' type='tns:XAInvCustomer'/>
+     <xs:element minOccurs='0' name='XDelivery' type='tns:XDelivery'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='createNgiShipmentWithDeliveryResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShipmentDataResponse' type='tns:XShipmentDataResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithPayer'>
+  <part element='tns:createNgiShipmentWithPayer' name='createNgiShipmentWithPayer'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_updateConsigneeAddressResponse'>
+  <part element='tns:updateConsigneeAddressResponse' name='updateConsigneeAddressResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_cancelNgiShipmentWithoutReturnResponse'>
+  <part element='tns:cancelNgiShipmentWithoutReturnResponse' name='cancelNgiShipmentWithoutReturnResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithZplKtnDelivery'>
+  <part element='tns:createNgiShipmentWithZplKtnDelivery' name='createNgiShipmentWithZplKtnDelivery'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipment'>
+  <part element='tns:createNgiShipment' name='createNgiShipment'></part>
+ </message>
+ <message name='YurticikargoWSException'>
+  <part element='tns:YurticikargoWSException' name='YurticikargoWSException'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithZplKtnDeliveryResponse'>
+  <part element='tns:createNgiShipmentWithZplKtnDeliveryResponse' name='createNgiShipmentWithZplKtnDeliveryResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_selectShipmentResponse'>
+  <part element='tns:selectShipmentResponse' name='selectShipmentResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_updateShipmentDesiWeight'>
+  <part element='tns:updateShipmentDesiWeight' name='updateShipmentDesiWeight'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithAddressResponse'>
+  <part element='tns:createNgiShipmentWithAddressResponse' name='createNgiShipmentWithAddressResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_doSaveNgiPayerCustomers'>
+  <part element='tns:doSaveNgiPayerCustomers' name='doSaveNgiPayerCustomers'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentResponse'>
+  <part element='tns:createNgiShipmentResponse' name='createNgiShipmentResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_updateShipmentDesiWeightResponse'>
+  <part element='tns:updateShipmentDesiWeightResponse' name='updateShipmentDesiWeightResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithPayerResponse'>
+  <part element='tns:createNgiShipmentWithPayerResponse' name='createNgiShipmentWithPayerResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithDeliveryResponse'>
+  <part element='tns:createNgiShipmentWithDeliveryResponse' name='createNgiShipmentWithDeliveryResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_selectShipment'>
+  <part element='tns:selectShipment' name='selectShipment'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_cancelNgiShipment'>
+  <part element='tns:cancelNgiShipment' name='cancelNgiShipment'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_cancelNgiShipmentResponse'>
+  <part element='tns:cancelNgiShipmentResponse' name='cancelNgiShipmentResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_cancelNgiShipmentWithoutReturn'>
+  <part element='tns:cancelNgiShipmentWithoutReturn' name='cancelNgiShipmentWithoutReturn'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithAddress'>
+  <part element='tns:createNgiShipmentWithAddress' name='createNgiShipmentWithAddress'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_doSaveNgiPayerCustomersResponse'>
+  <part element='tns:doSaveNgiPayerCustomersResponse' name='doSaveNgiPayerCustomersResponse'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_updateConsigneeAddress'>
+  <part element='tns:updateConsigneeAddress' name='updateConsigneeAddress'></part>
+ </message>
+ <message name='NgiShipmentInterfaceServices_createNgiShipmentWithDelivery'>
+  <part element='tns:createNgiShipmentWithDelivery' name='createNgiShipmentWithDelivery'></part>
+ </message>
+ <portType name='NgiShipmentInterfaceServices'>
+  <operation name='cancelNgiShipment' parameterOrder='cancelNgiShipment'>
+   <input message='tns:NgiShipmentInterfaceServices_cancelNgiShipment'></input>
+   <output message='tns:NgiShipmentInterfaceServices_cancelNgiShipmentResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='cancelNgiShipmentWithoutReturn' parameterOrder='cancelNgiShipmentWithoutReturn'>
+   <input message='tns:NgiShipmentInterfaceServices_cancelNgiShipmentWithoutReturn'></input>
+   <output message='tns:NgiShipmentInterfaceServices_cancelNgiShipmentWithoutReturnResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='createNgiShipment' parameterOrder='createNgiShipment'>
+   <input message='tns:NgiShipmentInterfaceServices_createNgiShipment'></input>
+   <output message='tns:NgiShipmentInterfaceServices_createNgiShipmentResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='createNgiShipmentWithAddress' parameterOrder='createNgiShipmentWithAddress'>
+   <input message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithAddress'></input>
+   <output message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithAddressResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='createNgiShipmentWithDelivery' parameterOrder='createNgiShipmentWithDelivery'>
+   <input message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithDelivery'></input>
+   <output message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithDeliveryResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='createNgiShipmentWithPayer' parameterOrder='createNgiShipmentWithPayer'>
+   <input message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithPayer'></input>
+   <output message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithPayerResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='createNgiShipmentWithZplKtnDelivery' parameterOrder='createNgiShipmentWithZplKtnDelivery'>
+   <input message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithZplKtnDelivery'></input>
+   <output message='tns:NgiShipmentInterfaceServices_createNgiShipmentWithZplKtnDeliveryResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='doSaveNgiPayerCustomers' parameterOrder='doSaveNgiPayerCustomers'>
+   <input message='tns:NgiShipmentInterfaceServices_doSaveNgiPayerCustomers'></input>
+   <output message='tns:NgiShipmentInterfaceServices_doSaveNgiPayerCustomersResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='selectShipment' parameterOrder='selectShipment'>
+   <input message='tns:NgiShipmentInterfaceServices_selectShipment'></input>
+   <output message='tns:NgiShipmentInterfaceServices_selectShipmentResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='updateConsigneeAddress' parameterOrder='updateConsigneeAddress'>
+   <input message='tns:NgiShipmentInterfaceServices_updateConsigneeAddress'></input>
+   <output message='tns:NgiShipmentInterfaceServices_updateConsigneeAddressResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='updateShipmentDesiWeight' parameterOrder='updateShipmentDesiWeight'>
+   <input message='tns:NgiShipmentInterfaceServices_updateShipmentDesiWeight'></input>
+   <output message='tns:NgiShipmentInterfaceServices_updateShipmentDesiWeightResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+ </portType>
+ <binding name='NgiShipmentInterfaceServicesBinding' type='tns:NgiShipmentInterfaceServices'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='cancelNgiShipment'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='cancelNgiShipmentWithoutReturn'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='createNgiShipment'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='createNgiShipmentWithAddress'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='createNgiShipmentWithDelivery'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='createNgiShipmentWithPayer'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='createNgiShipmentWithZplKtnDelivery'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='doSaveNgiPayerCustomers'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='selectShipment'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='updateConsigneeAddress'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='updateShipmentDesiWeight'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+ </binding>
+ <service name='KOPSWebServices'>
+  <port binding='tns:NgiShipmentInterfaceServicesBinding' name='NgiShipmentInterfaceServicesPort'>
+   <soap:address location='https://webservices.yurticikargo.com/KOPSWebServices/NgiShipmentInterfaceServices'/>
+  </port>
+ </service>
+</definitions>

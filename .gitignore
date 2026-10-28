@@ -1,0 +1,7 @@
+target/
+*.iml
+.idea/
+.DS_Store
+# Canlı denemelerin ham cevapları kişisel veri içerir — asla commit edilmez
+deneme-ciktilari/
+.env

@@ -1,0 +1,1778 @@
+<definitions name='KOPSWebServices' targetNamespace='http://yurticikargo.com.tr/sswIntegrationServices' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://yurticikargo.com.tr/WSExceptions/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://yurticikargo.com.tr/sswIntegrationServices' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://yurticikargo.com.tr/sswIntegrationServices' version='1.0' xmlns:ns1='http://yurticikargo.com.tr/WSExceptions/' xmlns:tns='http://yurticikargo.com.tr/sswIntegrationServices' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:import namespace='http://yurticikargo.com.tr/WSExceptions/'/>
+   <xs:element name='CustParamsVO' type='tns:CustParamsVO'/>
+   <xs:element name='CustomerIdVO' type='tns:CustomerIdVO'/>
+   <xs:element name='CustomerVO' type='tns:CustomerVO'/>
+   <xs:element name='DocCargoField2VO' type='tns:DocCargoField2VO'/>
+   <xs:element name='DocCargoVO' type='tns:DocCargoVO'/>
+   <xs:element name='InvCustParamsVO' type='tns:InvCustParamsVO'/>
+   <xs:element name='InvDocField2VO' type='tns:InvDocField2VO'/>
+   <xs:element name='Parcel2Tracking' type='tns:Parcel2Tracking'/>
+   <xs:element name='ParcelTracking' type='tns:ParcelTracking'/>
+   <xs:element name='Price' type='tns:DesiPrice'/>
+   <xs:element name='Routing' type='tns:Routing'/>
+   <xs:element name='ShippingDataDetailVO' type='tns:ShippingDataDetailVO'/>
+   <xs:element name='ShippingDataTrnVO' type='tns:ShippingDataTrnVO'/>
+   <xs:element name='ShippingDataV2DetailVO' type='tns:ShippingDataV2DetailVO'/>
+   <xs:element name='ShippingDataV3DetailVO' type='tns:ShippingDataV3DetailVO'/>
+   <xs:element name='ShippingDetailResponseVO' type='tns:ShippingDetailResponseVO'/>
+   <xs:element name='SpecialField' type='tns:SpecialField'/>
+   <xs:element name='TrackingDetailVO' type='tns:TrackingDetailVO'/>
+   <xs:element name='TrackingParamsVO' type='tns:TrackingParamsVO'/>
+   <xs:element name='UnitParamsVO' type='tns:UnitParamsVO'/>
+   <xs:element name='XShippingV2DetailVO' type='tns:XShippingV2DetailVO'/>
+   <xs:element name='YurticikargoWSException' nillable='true' type='ns1:YurticikargoWSException'/>
+   <xs:element name='doGetTrackingInfo' type='tns:doGetTrackingInfo'/>
+   <xs:element name='doGetTrackingInfoResponse' type='tns:doGetTrackingInfoResponse'/>
+   <xs:element name='doGetTrackingInfoWithDate' type='tns:doGetTrackingInfoWithDate'/>
+   <xs:element name='doGetTrackingInfoWithDateResponse' type='tns:doGetTrackingInfoWithDateResponse'/>
+   <xs:element name='getDeliveryCollectionInfoByReference' type='tns:getDeliveryCollectionInfoByReference'/>
+   <xs:element name='getDeliveryCollectionInfoByReferenceResponse' type='tns:getDeliveryCollectionInfoByReferenceResponse'/>
+   <xs:element name='listIncomingWithDocCargoReference' type='tns:listIncomingWithDocCargoReference'/>
+   <xs:element name='listIncomingWithDocCargoReferenceResponse' type='tns:listIncomingWithDocCargoReferenceResponse'/>
+   <xs:element name='listInvDocInterfaceWithTrnCenter' type='tns:listInvDocInterfaceWithTrnCenter'/>
+   <xs:element name='listInvDocInterfaceWithTrnCenterResponse' type='tns:listInvDocInterfaceWithTrnCenterResponse'/>
+   <xs:element name='listInvDocumentByCustIdV2' type='tns:listInvDocumentByCustIdV2'/>
+   <xs:element name='listInvDocumentByCustIdV2Response' type='tns:listInvDocumentByCustIdV2Response'/>
+   <xs:element name='listInvDocumentByGrpSpecialField' type='tns:listInvDocumentByGrpSpecialField'/>
+   <xs:element name='listInvDocumentByGrpSpecialFieldResponse' type='tns:listInvDocumentByGrpSpecialFieldResponse'/>
+   <xs:element name='listInvDocumentByReferenceWithPayer' type='tns:listInvDocumentByReferenceWithPayer'/>
+   <xs:element name='listInvDocumentByReferenceWithPayerResponse' type='tns:listInvDocumentByReferenceWithPayerResponse'/>
+   <xs:element name='listInvDocumentByTrackingNumber' type='tns:listInvDocumentByTrackingNumber'/>
+   <xs:element name='listInvDocumentByTrackingNumberResponse' type='tns:listInvDocumentByTrackingNumberResponse'/>
+   <xs:element name='listInvDocumentByWaybillNo' type='tns:listInvDocumentByWaybillNo'/>
+   <xs:element name='listInvDocumentByWaybillNoResponse' type='tns:listInvDocumentByWaybillNoResponse'/>
+   <xs:element name='listInvDocumentInterfaceByReference' type='tns:listInvDocumentInterfaceByReference'/>
+   <xs:element name='listInvDocumentInterfaceByReferenceResponse' type='tns:listInvDocumentInterfaceByReferenceResponse'/>
+   <xs:element name='listInvDocumentInterfaceWithFailedDeliveryV2' type='tns:listInvDocumentInterfaceWithFailedDeliveryV2'/>
+   <xs:element name='listInvDocumentInterfaceWithFailedDeliveryV2Response' type='tns:listInvDocumentInterfaceWithFailedDeliveryV2Response'/>
+   <xs:element name='listInvDocumentWithCustId' type='tns:listInvDocumentWithCustId'/>
+   <xs:element name='listInvDocumentWithCustIdResponse' type='tns:listInvDocumentWithCustIdResponse'/>
+   <xs:element name='listInvDocumentWithDocDateInvCustId' type='tns:listInvDocumentWithDocDateInvCustId'/>
+   <xs:element name='listInvDocumentWithDocDateInvCustIdResponse' type='tns:listInvDocumentWithDocDateInvCustIdResponse'/>
+   <xs:element name='listNgiShipping' type='tns:listNgiShipping'/>
+   <xs:element name='listNgiShippingResponse' type='tns:listNgiShippingResponse'/>
+   <xs:element name='listNgiShippingWithDocId' type='tns:listNgiShippingWithDocId'/>
+   <xs:element name='listNgiShippingWithDocIdResponse' type='tns:listNgiShippingWithDocIdResponse'/>
+   <xs:element name='listNgiShippingWithPayer' type='tns:listNgiShippingWithPayer'/>
+   <xs:element name='listNgiShippingWithPayerResponse' type='tns:listNgiShippingWithPayerResponse'/>
+   <xs:element name='listOutboundWithDocCargoReference' type='tns:listOutboundWithDocCargoReference'/>
+   <xs:element name='listOutboundWithDocCargoReferenceResponse' type='tns:listOutboundWithDocCargoReferenceResponse'/>
+   <xs:complexType name='listInvDocumentInterfaceByReference'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='CustParamsVO'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invCustIdArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='senderCustIdArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='receiverCustIdArray' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentInterfaceByReferenceResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shippingDataResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDataDetailVOArray' nillable='true' type='tns:ShippingDataDetailVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='baseResultVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='outFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='outResult' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='ShippingDataDetailVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='transactionStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionErrCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invoiceNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='waybillNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReceiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDelFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docType' type='xs:string'/>
+     <xs:element minOccurs='0' name='docTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='contractId' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDistance' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='product' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesi' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesiKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalCargo' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDelUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delEmpName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatusExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectDescription' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocId' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocumentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatusExplanation' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invDocFieldVOArray' nillable='true' type='tns:InvDocField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoFieldVOArray' nillable='true' type='tns:DocCargoField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoLifeCycleVOArray' nillable='true' type='tns:DocCargoLifeCycleVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+     <xs:element minOccurs='0' name='returnTotalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrlWithToken' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='InvDocField2VO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldNameExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='DocCargoField2VO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldNameExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='DocCargoLifeCycleVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventName' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='reasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='reasonName' type='xs:string'/>
+     <xs:element minOccurs='0' name='townName' type='xs:string'/>
+     <xs:element minOccurs='0' name='unitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='unitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='desi' type='xs:string'/>
+     <xs:element minOccurs='0' name='kg' type='xs:string'/>
+     <xs:element minOccurs='0' name='desiKg' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='DocCargoVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element name='cargoNumber' type='xs:long'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='desi' type='xs:double'/>
+     <xs:element name='kg' type='xs:double'/>
+     <xs:element name='desiKg' type='xs:double'/>
+     <xs:element minOccurs='0' name='barcodeStringValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByGrpSpecialField'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByGrpSpecialFieldResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listIncomingWithDocCargoReference'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listIncomingWithDocCargoReferenceResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listOutboundWithDocCargoReference'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listOutboundWithDocCargoReferenceResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShippingWithPayer'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='customerVO' type='tns:CustomerVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='CustomerVO'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invCustIdArray' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShippingWithPayerResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShippingV2ResponseVO' type='tns:xShippingV2ResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='xShippingV2ResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDetailVOArray' nillable='true' type='tns:XShippingV2DetailVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='XShippingV2DetailVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='recCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='depUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='depCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='docType' type='xs:string'/>
+     <xs:element minOccurs='0' name='paymentType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickUpType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickUpTypeCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTypeCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='prodName' type='xs:string'/>
+     <xs:element minOccurs='0' name='prodGrpName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element name='totalCargo' type='xs:int'/>
+     <xs:element name='totalDesiKg' type='xs:double'/>
+     <xs:element name='productPrice' type='xs:double'/>
+     <xs:element name='totalPrice' type='xs:double'/>
+     <xs:element name='totalVat' type='xs:double'/>
+     <xs:element name='totalPriceWithVat' type='xs:double'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveredTo' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupDocumentNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='waybillNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='extraInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='description' type='xs:string'/>
+     <xs:element minOccurs='0' name='activeFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='userCreate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateCreate' type='xs:string'/>
+     <xs:element minOccurs='0' name='timeCreate' type='xs:string'/>
+     <xs:element minOccurs='0' name='userUpdate' type='xs:string'/>
+     <xs:element minOccurs='0' name='delUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='delUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='depCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='recAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='invoiceNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrUnitTelArea' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrUnitTelNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrMainUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delMainUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='campaignName' type='xs:string'/>
+     <xs:element minOccurs='0' name='campaignId' type='xs:string'/>
+     <xs:element minOccurs='0' name='campaignKey' type='xs:string'/>
+     <xs:element minOccurs='0' name='insurance' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalTime' type='xs:string'/>
+     <xs:element name='dayDiff' type='xs:int'/>
+     <xs:element minOccurs='0' name='recCustTelArea1' type='xs:string'/>
+     <xs:element minOccurs='0' name='recCustTelNo1' type='xs:string'/>
+     <xs:element minOccurs='0' name='depMainUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='perfCFlag' type='xs:string'/>
+     <xs:element name='delivDurationWorkDay' type='xs:int'/>
+     <xs:element name='delivDuration' type='xs:int'/>
+     <xs:element minOccurs='0' name='perfLateCEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='perfLateCReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='contractId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docFieldAllValue' type='xs:string'/>
+     <xs:element name='shipmentDistance' type='xs:int'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='campaignAreaType' type='xs:string'/>
+     <xs:element minOccurs='0' name='reroutingFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitArrivalDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitArrivalTime' type='xs:string'/>
+     <xs:element name='waybillCount' type='xs:int'/>
+     <xs:element minOccurs='0' name='docCarryBagNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddress' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderPhone1' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderGsm' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverPhone1' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverGsm' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrCountyId' type='xs:string'/>
+     <xs:element minOccurs='0' name='depCountyId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCountyName' type='xs:string'/>
+     <xs:element minOccurs='0' name='nextDayDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='nextDayDeliveryEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='nextDayDeliveryReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='txEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCountyName' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionChannel' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustTelArea1' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustTelNo1' type='xs:string'/>
+     <xs:element minOccurs='0' name='delFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReason' type='xs:string'/>
+     <xs:element minOccurs='0' name='delMainUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrMainUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='depMainUnitName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invDocFieldVOArray' nillable='true' type='tns:InvDocField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoFieldVOArray' nillable='true' type='tns:DocCargoField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoLifeCycleVOArray' nillable='true' type='tns:DocCargoLifeCycleVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+     <xs:element minOccurs='0' name='ktnFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnArrivalFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnYkPlusId' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnType' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnId' type='xs:string'/>
+     <xs:element minOccurs='0' name='ktnUnitPrcLocationId' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrlWithToken' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShippingWithDocId'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='customerVO' type='tns:CustomerVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShippingWithDocIdResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShippingV2ResponseVO' type='tns:xShippingV2ResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doGetTrackingInfo'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doGetTrackingInfoResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ParcelTrackingResponse' type='tns:parcelTrackingResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='parcelTrackingResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='parcelTrackingArray' nillable='true' type='tns:ParcelTracking'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='ParcelTracking'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='transactionStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionErrCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDeliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='productName' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentEventInfo' type='tns:CurrentEventInfo'/>
+     <xs:element minOccurs='0' name='desiPrice' type='tns:DesiPrice'/>
+     <xs:element minOccurs='0' name='routing' type='tns:Routing'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='parcelLifeCycleArray' nillable='true' type='tns:ParcelLifeCycle'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldArray' nillable='true' type='tns:SpecialField'/>
+     <xs:element minOccurs='0' name='pod' type='tns:Pod'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='CurrentEventInfo'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='custEventCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='DesiPrice'>
+    <xs:sequence>
+     <xs:element name='totalPrice' type='xs:double'/>
+     <xs:element name='totalVat' type='xs:double'/>
+     <xs:element name='totalPriceWithVat' type='xs:double'/>
+     <xs:element name='totalDesi' type='xs:double'/>
+     <xs:element name='totalWeight' type='xs:double'/>
+     <xs:element name='totalCargoCount' type='xs:int'/>
+     <xs:element name='returnTotalPrice' type='xs:double'/>
+     <xs:element name='returnTotalVat' type='xs:double'/>
+     <xs:element name='returnTotalPriceWithVat' type='xs:double'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='Routing'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='ParcelLifeCycle'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonName' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='eventUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='custEventCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='SpecialField'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldNameExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='Pod'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='podUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryMethod' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doGetTrackingInfoWithDate'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='customerIdVO' type='tns:CustomerIdVO'/>
+     <xs:element minOccurs='0' name='dispatchDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element name='pageSequenceNumber' type='xs:long'/>
+     <xs:element name='totalPageNumber' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='CustomerIdVO'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invCustIdArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='senderCustIdArray' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='doGetTrackingInfoWithDateResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='Parcel2TrackingResponse' type='tns:parcel2TrackingResponse'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='parcel2TrackingResponse'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='parcelTrackingArray' nillable='true' type='tns:Parcel2Tracking'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='Parcel2Tracking'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='transactionStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionErrCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverLocation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDeliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='productName' type='xs:string'/>
+     <xs:element minOccurs='0' name='productCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentEventInfo' type='tns:CurrentEventInfo'/>
+     <xs:element minOccurs='0' name='desiPrice' type='tns:DesiPrice'/>
+     <xs:element minOccurs='0' name='routing' type='tns:Routing'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='specialFieldArray' nillable='true' type='tns:SpecialField'/>
+     <xs:element minOccurs='0' name='pod' type='tns:Pod'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShipping'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listNgiShippingResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='XShippingV2ResponseVO' type='tns:xShippingV2ResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByCustIdV2'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='unitParamsVO' type='tns:UnitParamsVO'/>
+     <xs:element minOccurs='0' name='subCustomerFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserGroupId' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+     <xs:element name='pageSequenceNumber' type='xs:long'/>
+     <xs:element name='totalPages' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='UnitParamsVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByCustIdV2Response'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataV3ResponseVO' type='tns:shippingDataV3ResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shippingDataV3ResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDataDetailVOArray' nillable='true' type='tns:ShippingDataV3DetailVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='ShippingDataV3DetailVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionChannel' type='xs:string'/>
+     <xs:element minOccurs='0' name='invoiceNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='waybillNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReceiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDelFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docType' type='xs:string'/>
+     <xs:element minOccurs='0' name='docTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='contractId' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDistance' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='product' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesi' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesiKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalCargo' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDelUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delEmpName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatusExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectDescription' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocId' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocumentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatusExplanation' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invDocFieldVOArray' nillable='true' type='tns:InvDocField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoFieldVOArray' nillable='true' type='tns:DocCargoField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoLifeCycleVOArray' nillable='true' type='tns:DocCargoLifeCycleVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByReferenceWithPayer'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='customerVO' type='tns:CustomerVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByReferenceWithPayerResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentInterfaceWithFailedDeliveryV2'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentInterfaceWithFailedDeliveryV2Response'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataV2ResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shippingDataV2ResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDataV2DetailVOArray' nillable='true' type='tns:ShippingDataV2DetailVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='extendedBaseResultVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element minOccurs='0' name='errCode' type='xs:string'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='ShippingDataV2DetailVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionChannel' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='currentUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectRequestDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatusExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectDescription' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressText' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocInterfaceWithTrnCenter'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustParamsVO' type='tns:InvCustParamsVO'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='fieldValueArray' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='withTrnCenterFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='InvCustParamsVO'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invCustIdArray' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocInterfaceWithTrnCenterResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingTrnResponseVO' type='tns:shippingTrnResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shippingTrnResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDataTrnVOArray' nillable='true' type='tns:ShippingDataTrnVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='ShippingDataTrnVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='transactionStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionErrCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invoiceNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='waybillNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReceiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDelFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docType' type='xs:string'/>
+     <xs:element minOccurs='0' name='docTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='contractId' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDistance' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='product' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesi' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesiKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalCargo' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDelUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delEmpName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatusExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectDescription' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocId' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocumentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatusExplanation' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invDocFieldVOArray' nillable='true' type='tns:InvDocField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoFieldVOArray' nillable='true' type='tns:DocCargoField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoLifeCycleVOArray' nillable='true' type='tns:DocCargoLifeCycleVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+     <xs:element minOccurs='0' name='returnTotalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrlWithToken' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitType' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureTrnCenterId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureTrnCenterName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalTrnCenterId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalTrnCenterName' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByTrackingNumber'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingParamsVO' type='tns:TrackingParamsVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='TrackingParamsVO'>
+    <xs:sequence>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docIdArray' type='xs:long'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByTrackingNumberResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='TrackingDataResponseVO' type='tns:trackingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='trackingDataResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='trackingDetailVOArray' nillable='true' type='tns:TrackingDetailVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='TrackingDetailVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='transactionStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionErrCode' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionMessage' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invoiceNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='waybillNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCityName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverTownName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReceiverMobilePhoneNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDelFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='docType' type='xs:string'/>
+     <xs:element minOccurs='0' name='docTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='contractId' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='shipmentDistance' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupType' type='xs:string'/>
+     <xs:element minOccurs='0' name='pickupTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryType' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTypeExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='product' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesi' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesiKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalCargo' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDeliveryFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='delInfoDelUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='delEmpName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectStatusExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectDescription' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocId' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDocumentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnStatusExplanation' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='invDocFieldVOArray' nillable='true' type='tns:InvDocField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoFieldVOArray' nillable='true' type='tns:DocCargoField2VO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoLifeCycleVOArray' nillable='true' type='tns:DocCargoLifeCycleVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='docCargoVOArray' nillable='true' type='tns:DocCargoVO'/>
+     <xs:element minOccurs='0' name='returnTotalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='returnTotalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='ideliveryTrackingUrlWithToken' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByWaybillNo'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='waybillNoArray' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='withCargoLifecycle' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentByWaybillNoResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingDataResponseVO' type='tns:shippingDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='getDeliveryCollectionInfoByReference'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateType' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='custDocNumber' type='xs:string'/>
+     <xs:element maxOccurs='unbounded' minOccurs='0' name='custId' type='xs:long'/>
+     <xs:element minOccurs='0' name='subCustomer' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='getDeliveryCollectionInfoByReferenceResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='DeliveryCollectionDataResponseVO' type='tns:deliveryCollectionDataResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='deliveryCollectionDataResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:extendedBaseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='deliveryCollectionInfoVOArray' nillable='true' type='tns:qListDeliveryCollectionInfoVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='qListDeliveryCollectionInfoVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoStatus' type='xs:string'/>
+     <xs:element name='collectionAmount' type='xs:double'/>
+     <xs:element minOccurs='0' name='custCollectionType' type='xs:string'/>
+     <xs:element minOccurs='0' name='custDocNumber' type='xs:string'/>
+     <xs:element name='custInvoiceAmount' type='xs:double'/>
+     <xs:element minOccurs='0' name='dcAppliedCredit' type='xs:string'/>
+     <xs:element minOccurs='0' name='dcBankRefNo' type='xs:string'/>
+     <xs:element minOccurs='0' name='dcSelectedCredit' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='docFieldAllValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element name='docPrice' type='xs:double'/>
+     <xs:element name='docVat' type='xs:double'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dtCollectionDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dueDate' type='xs:string'/>
+     <xs:element name='dutyPrice' type='xs:double'/>
+     <xs:element name='dutyVat' type='xs:double'/>
+     <xs:element minOccurs='0' name='invoiceStatus' type='xs:string'/>
+     <xs:element minOccurs='0' name='lastEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='lastEventTime' type='xs:string'/>
+     <xs:element minOccurs='0' name='odCollectionDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='specialField' type='xs:string'/>
+     <xs:element minOccurs='0' name='ykInvoiceId' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentWithCustId'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='custParamsVO' type='tns:CustParamsVO'/>
+     <xs:element minOccurs='0' name='unitParamsVO' type='tns:UnitParamsVO'/>
+     <xs:element minOccurs='0' name='subCustomerFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='dateParamType' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserGroupId' type='xs:string'/>
+     <xs:element name='pageSequenceNumber' type='xs:long'/>
+     <xs:element name='totalPages' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentWithCustIdResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingResponseVO' type='tns:shippingResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='shippingResponseVO'>
+    <xs:complexContent>
+     <xs:extension base='tns:baseResultVO'>
+      <xs:sequence>
+       <xs:element maxOccurs='unbounded' minOccurs='0' name='shippingDetailResponseVOArray' nillable='true' type='tns:ShippingDetailResponseVO'/>
+      </xs:sequence>
+     </xs:extension>
+    </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name='ShippingDetailResponseVO'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='fieldName' type='xs:string'/>
+     <xs:element minOccurs='0' name='fieldValue' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustId' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverCustName' type='xs:string'/>
+     <xs:element minOccurs='0' name='senderAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverAddressTxt' type='xs:string'/>
+     <xs:element minOccurs='0' name='docId' type='xs:string'/>
+     <xs:element minOccurs='0' name='docNumber' type='xs:string'/>
+     <xs:element minOccurs='0' name='transactionChannel' type='xs:string'/>
+     <xs:element minOccurs='0' name='docCargoId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonExplanation' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventId' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoReasonId' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalPrice' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalVat' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalAmount' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='departureUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalDesi' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalKg' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='deliveryUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitId' type='xs:string'/>
+     <xs:element minOccurs='0' name='arrivalUnitName' type='xs:string'/>
+     <xs:element minOccurs='0' name='documentDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='receiverInfo' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoType' type='xs:string'/>
+     <xs:element minOccurs='0' name='rejectFlag' type='xs:string'/>
+     <xs:element minOccurs='0' name='trackingUrl' type='xs:string'/>
+     <xs:element minOccurs='0' name='estimatedDeliveryDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='totalCargoCount' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='cargoEventTime' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentWithDocDateInvCustId'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='userName' type='xs:string'/>
+     <xs:element minOccurs='0' name='password' type='xs:string'/>
+     <xs:element minOccurs='0' name='language' type='xs:string'/>
+     <xs:element minOccurs='0' name='invCustParamsVO' type='tns:InvCustParamsVO'/>
+     <xs:element minOccurs='0' name='unitParamsVO' type='tns:UnitParamsVO'/>
+     <xs:element minOccurs='0' name='startDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='endDate' type='xs:string'/>
+     <xs:element minOccurs='0' name='wsUserGroupId' type='xs:string'/>
+     <xs:element name='pageSequenceNumber' type='xs:long'/>
+     <xs:element name='totalPages' type='xs:long'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='listInvDocumentWithDocDateInvCustIdResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='ShippingResponseVO' type='tns:shippingResponseVO'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  <xs:schema targetNamespace='http://yurticikargo.com.tr/WSExceptions/' version='1.0' xmlns:tns='http://yurticikargo.com.tr/WSExceptions/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='YurticikargoWSException' type='tns:YurticikargoWSException'/>
+   <xs:complexType name='YurticikargoWSException'>
+    <xs:sequence>
+     <xs:element name='errorCode' type='xs:int'/>
+     <xs:element minOccurs='0' name='errText' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='WsReportWithReferenceServices_doGetTrackingInfoWithDateResponse'>
+  <part element='tns:doGetTrackingInfoWithDateResponse' name='doGetTrackingInfoWithDateResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_getDeliveryCollectionInfoByReferenceResponse'>
+  <part element='tns:getDeliveryCollectionInfoByReferenceResponse' name='getDeliveryCollectionInfoByReferenceResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShippingResponse'>
+  <part element='tns:listNgiShippingResponse' name='listNgiShippingResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenterResponse'>
+  <part element='tns:listInvDocInterfaceWithTrnCenterResponse' name='listInvDocInterfaceWithTrnCenterResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByReferenceWithPayer'>
+  <part element='tns:listInvDocumentByReferenceWithPayer' name='listInvDocumentByReferenceWithPayer'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listOutboundWithDocCargoReference'>
+  <part element='tns:listOutboundWithDocCargoReference' name='listOutboundWithDocCargoReference'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByWaybillNoResponse'>
+  <part element='tns:listInvDocumentByWaybillNoResponse' name='listInvDocumentByWaybillNoResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentWithCustId'>
+  <part element='tns:listInvDocumentWithCustId' name='listInvDocumentWithCustId'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_doGetTrackingInfoWithDate'>
+  <part element='tns:doGetTrackingInfoWithDate' name='doGetTrackingInfoWithDate'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustId'>
+  <part element='tns:listInvDocumentWithDocDateInvCustId' name='listInvDocumentWithDocDateInvCustId'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShipping'>
+  <part element='tns:listNgiShipping' name='listNgiShipping'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByCustIdV2Response'>
+  <part element='tns:listInvDocumentByCustIdV2Response' name='listInvDocumentByCustIdV2Response'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShippingWithDocIdResponse'>
+  <part element='tns:listNgiShippingWithDocIdResponse' name='listNgiShippingWithDocIdResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByGrpSpecialField'>
+  <part element='tns:listInvDocumentByGrpSpecialField' name='listInvDocumentByGrpSpecialField'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_doGetTrackingInfo'>
+  <part element='tns:doGetTrackingInfo' name='doGetTrackingInfo'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShippingWithPayerResponse'>
+  <part element='tns:listNgiShippingWithPayerResponse' name='listNgiShippingWithPayerResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listIncomingWithDocCargoReferenceResponse'>
+  <part element='tns:listIncomingWithDocCargoReferenceResponse' name='listIncomingWithDocCargoReferenceResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentInterfaceByReference'>
+  <part element='tns:listInvDocumentInterfaceByReference' name='listInvDocumentInterfaceByReference'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_doGetTrackingInfoResponse'>
+  <part element='tns:doGetTrackingInfoResponse' name='doGetTrackingInfoResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByTrackingNumberResponse'>
+  <part element='tns:listInvDocumentByTrackingNumberResponse' name='listInvDocumentByTrackingNumberResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listIncomingWithDocCargoReference'>
+  <part element='tns:listIncomingWithDocCargoReference' name='listIncomingWithDocCargoReference'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentWithCustIdResponse'>
+  <part element='tns:listInvDocumentWithCustIdResponse' name='listInvDocumentWithCustIdResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listOutboundWithDocCargoReferenceResponse'>
+  <part element='tns:listOutboundWithDocCargoReferenceResponse' name='listOutboundWithDocCargoReferenceResponse'></part>
+ </message>
+ <message name='YurticikargoWSException'>
+  <part element='tns:YurticikargoWSException' name='YurticikargoWSException'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByGrpSpecialFieldResponse'>
+  <part element='tns:listInvDocumentByGrpSpecialFieldResponse' name='listInvDocumentByGrpSpecialFieldResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2'>
+  <part element='tns:listInvDocumentInterfaceWithFailedDeliveryV2' name='listInvDocumentInterfaceWithFailedDeliveryV2'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShippingWithPayer'>
+  <part element='tns:listNgiShippingWithPayer' name='listNgiShippingWithPayer'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByWaybillNo'>
+  <part element='tns:listInvDocumentByWaybillNo' name='listInvDocumentByWaybillNo'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listNgiShippingWithDocId'>
+  <part element='tns:listNgiShippingWithDocId' name='listNgiShippingWithDocId'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByTrackingNumber'>
+  <part element='tns:listInvDocumentByTrackingNumber' name='listInvDocumentByTrackingNumber'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenter'>
+  <part element='tns:listInvDocInterfaceWithTrnCenter' name='listInvDocInterfaceWithTrnCenter'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustIdResponse'>
+  <part element='tns:listInvDocumentWithDocDateInvCustIdResponse' name='listInvDocumentWithDocDateInvCustIdResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_getDeliveryCollectionInfoByReference'>
+  <part element='tns:getDeliveryCollectionInfoByReference' name='getDeliveryCollectionInfoByReference'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByCustIdV2'>
+  <part element='tns:listInvDocumentByCustIdV2' name='listInvDocumentByCustIdV2'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentByReferenceWithPayerResponse'>
+  <part element='tns:listInvDocumentByReferenceWithPayerResponse' name='listInvDocumentByReferenceWithPayerResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentInterfaceByReferenceResponse'>
+  <part element='tns:listInvDocumentInterfaceByReferenceResponse' name='listInvDocumentInterfaceByReferenceResponse'></part>
+ </message>
+ <message name='WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2Response'>
+  <part element='tns:listInvDocumentInterfaceWithFailedDeliveryV2Response' name='listInvDocumentInterfaceWithFailedDeliveryV2Response'></part>
+ </message>
+ <portType name='WsReportWithReferenceServices'>
+  <operation name='doGetTrackingInfo' parameterOrder='doGetTrackingInfo'>
+   <input message='tns:WsReportWithReferenceServices_doGetTrackingInfo'></input>
+   <output message='tns:WsReportWithReferenceServices_doGetTrackingInfoResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='doGetTrackingInfoWithDate' parameterOrder='doGetTrackingInfoWithDate'>
+   <input message='tns:WsReportWithReferenceServices_doGetTrackingInfoWithDate'></input>
+   <output message='tns:WsReportWithReferenceServices_doGetTrackingInfoWithDateResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='getDeliveryCollectionInfoByReference' parameterOrder='getDeliveryCollectionInfoByReference'>
+   <input message='tns:WsReportWithReferenceServices_getDeliveryCollectionInfoByReference'></input>
+   <output message='tns:WsReportWithReferenceServices_getDeliveryCollectionInfoByReferenceResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listIncomingWithDocCargoReference' parameterOrder='listIncomingWithDocCargoReference'>
+   <input message='tns:WsReportWithReferenceServices_listIncomingWithDocCargoReference'></input>
+   <output message='tns:WsReportWithReferenceServices_listIncomingWithDocCargoReferenceResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocInterfaceWithTrnCenter' parameterOrder='listInvDocInterfaceWithTrnCenter'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenter'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenterResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentByCustIdV2' parameterOrder='listInvDocumentByCustIdV2'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentByCustIdV2'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentByCustIdV2Response'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentByGrpSpecialField' parameterOrder='listInvDocumentByGrpSpecialField'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentByGrpSpecialField'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentByGrpSpecialFieldResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentByReferenceWithPayer' parameterOrder='listInvDocumentByReferenceWithPayer'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentByReferenceWithPayer'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentByReferenceWithPayerResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentByTrackingNumber' parameterOrder='listInvDocumentByTrackingNumber'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentByTrackingNumber'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentByTrackingNumberResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentByWaybillNo' parameterOrder='listInvDocumentByWaybillNo'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentByWaybillNo'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentByWaybillNoResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentInterfaceByReference' parameterOrder='listInvDocumentInterfaceByReference'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentInterfaceByReference'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentInterfaceByReferenceResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentInterfaceWithFailedDeliveryV2' parameterOrder='listInvDocumentInterfaceWithFailedDeliveryV2'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2Response'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentWithCustId' parameterOrder='listInvDocumentWithCustId'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentWithCustId'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentWithCustIdResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listInvDocumentWithDocDateInvCustId' parameterOrder='listInvDocumentWithDocDateInvCustId'>
+   <input message='tns:WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustId'></input>
+   <output message='tns:WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustIdResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listNgiShipping' parameterOrder='listNgiShipping'>
+   <input message='tns:WsReportWithReferenceServices_listNgiShipping'></input>
+   <output message='tns:WsReportWithReferenceServices_listNgiShippingResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listNgiShippingWithDocId' parameterOrder='listNgiShippingWithDocId'>
+   <input message='tns:WsReportWithReferenceServices_listNgiShippingWithDocId'></input>
+   <output message='tns:WsReportWithReferenceServices_listNgiShippingWithDocIdResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listNgiShippingWithPayer' parameterOrder='listNgiShippingWithPayer'>
+   <input message='tns:WsReportWithReferenceServices_listNgiShippingWithPayer'></input>
+   <output message='tns:WsReportWithReferenceServices_listNgiShippingWithPayerResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+  <operation name='listOutboundWithDocCargoReference' parameterOrder='listOutboundWithDocCargoReference'>
+   <input message='tns:WsReportWithReferenceServices_listOutboundWithDocCargoReference'></input>
+   <output message='tns:WsReportWithReferenceServices_listOutboundWithDocCargoReferenceResponse'></output>
+   <fault message='tns:YurticikargoWSException' name='YurticikargoWSException'></fault>
+  </operation>
+ </portType>
+ <binding name='WsReportWithReferenceServicesBinding' type='tns:WsReportWithReferenceServices'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='doGetTrackingInfo'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='doGetTrackingInfoWithDate'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='getDeliveryCollectionInfoByReference'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listIncomingWithDocCargoReference'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocInterfaceWithTrnCenter'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentByCustIdV2'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentByGrpSpecialField'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentByReferenceWithPayer'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentByTrackingNumber'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentByWaybillNo'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentInterfaceByReference'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentInterfaceWithFailedDeliveryV2'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentWithCustId'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listInvDocumentWithDocDateInvCustId'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listNgiShipping'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listNgiShippingWithDocId'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listNgiShippingWithPayer'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+  <operation name='listOutboundWithDocCargoReference'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='YurticikargoWSException'>
+    <soap:fault name='YurticikargoWSException' use='literal'/>
+   </fault>
+  </operation>
+ </binding>
+ <service name='KOPSWebServices'>
+  <port binding='tns:WsReportWithReferenceServicesBinding' name='WsReportWithReferenceServicesPort'>
+   <soap:address location='https://webservices.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices'/>
+  </port>
+ </service>
+</definitions>
