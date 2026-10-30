@@ -78,6 +78,9 @@ değiştirme** yalnız NGI ile açılmış gönderide mümkündür (standart cre
 7. Rapor işlemlerinin çoğu şube kodu ister; eksikse anlamsız "Beklenmeyen bir hata oluştu".
 8. Aynı bilgi kayıt ailesine göre farklı adla gelir (KDV dahil ücret: `totalAmount` / `totalPriceWithVat` /
    `desiPrice.totalPriceWithVat`) → kütüphanedeki `KargoKaydi` hepsini tek modele çevirir.
+9. **Kargo anahtarıyla sorgu yalnız kendi açtığınız gönderiyi görür** (`queryShipment` / `queryShipmentDetail`): elle
+   açılmış gönderi 82519 döner, yolda ya da teslim edilmiş olsa bile. Takip numarasıyla `listInvDocumentByTrackingNumber`
+   bütün gönderileri görür (teslim: olay kodu `OK`).
 
 ## Özel alanlar
 

@@ -100,6 +100,10 @@ kg/desi/desi-kg, geri dönüş bilgisi, özel alanlar, koliler, hareketler). Haz
 - Kimlik alanlarının adı işleme göre değişir (`wsLanguage` / `userLanguage` / `wsUserLanguage`).
 - Rapor işlemlerinin çoğu şube kodu ister; eksikse Yurtiçi anlamsız "Beklenmeyen bir hata" der.
 - İptal edilmiş gönderi sorgulanınca çoğu zaman "iptal" değil "bulunamadı" döner.
+- **Kendi anahtarınızla açmadığınız gönderi bulunamaz:** `gonderiSorgula` (kargo anahtarıyla sorgu) yalnız sizin
+  API anahtarınızla açılan gönderiyi görür; şubede ya da başka yoldan elle açılan gönderi için 82519 "bulunamadı" döner,
+  gönderi yolda ya da teslim edilmiş olsa bile. Takip numarası elinizdeyse `takipNoIleBelgeler(true, takipNo)` (rapor
+  servisi) bütün gönderileri görür; teslim edilende olay kodu `OK`'dir. Kütüphane bu geçişi kendiliğinden yapmaz.
 
 ## Çalışmayanlar / Yurtiçi'den beklenenler
 
