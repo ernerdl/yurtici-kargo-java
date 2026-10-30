@@ -1,0 +1,3 @@
+# JitPack derlemesi (https://jitpack.io/#ernerdl/yurtici-kargo-java) — kütüphane Java 21 ister
+jdk:
+  - openjdk21

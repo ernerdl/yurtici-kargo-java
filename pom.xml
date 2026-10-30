@@ -6,7 +6,7 @@
 
     <groupId>tr.com.sevinclidoga</groupId>
     <artifactId>yurtici-kargo-java</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Yurtiçi Kargo Java İstemcisi</name>
     <description>Yurtiçi Kargo KOPS web servisleri (gönderi, rapor, NGI) için bağımsız Java istemcisi</description>
     <url>https://github.com/ernerdl/yurtici-kargo-java</url>
@@ -44,6 +44,18 @@
                     <!-- Canlı/test Yurtiçi'ye giden denemeler varsayılan derlemede ÇALIŞMAZ: -Pcanli-deneme -->
                     <excludedGroups>canli</excludedGroups>
                 </configuration>
+            </plugin>
+            <plugin>
+                <!-- Kaynak JAR'ı: IDE'de metot belgeleri ve kaynağa gitme için -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>kaynak-jar</id>
+                        <goals><goal>jar-no-fork</goal></goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

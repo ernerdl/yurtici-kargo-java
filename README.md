@@ -7,6 +7,35 @@ Her işlem **gerçek Yurtiçi'ye karşı denendi** (2026-10-28): okumalar canlı
 Hangi işlemin çalıştığı, hangi parametreyi zorunlu tuttuğu ve tuzakları: [`docs/ISLEM_DURUMU.md`](docs/ISLEM_DURUMU.md).
 37 işlemin tam listesi: [`docs/ISLEM_ENVANTERI.md`](docs/ISLEM_ENVANTERI.md).
 
+## Kurulum
+
+Maven (JitPack üzerinden — ayrı hesap ya da derleme gerekmez):
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.ernerdl</groupId>
+    <artifactId>yurtici-kargo-java</artifactId>
+    <version>v1.0.0</version>
+</dependency>
+```
+
+Gradle:
+
+```groovy
+repositories { maven { url 'https://jitpack.io' } }
+dependencies { implementation 'com.github.ernerdl:yurtici-kargo-java:v1.0.0' }
+```
+
+Elle: [Sürümler](https://github.com/ernerdl/yurtici-kargo-java/releases) sayfasındaki JAR'ı indirip sınıf yoluna ekleyin
+(çalışma zamanı bağımlılığı yok). Java 21 ya da üstü gerekir.
+
 ## Hızlı başlangıç
 
 ```java
